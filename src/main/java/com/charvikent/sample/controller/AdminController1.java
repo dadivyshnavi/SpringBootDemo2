@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AdminController1 {
 	
 	@GetMapping("/home1")
-	public String showHome1Page()
+	public String showhome1Page()
 	{
 		
 		String str="invalid url";
@@ -23,7 +23,7 @@ public class AdminController1 {
 	
 	
 	@PostMapping("/home1")
-	public void gethome1Data(HttpServletRequest request)
+	public String gethome1Data(HttpServletRequest request)
 	{
 		String username =request.getParameter("uname"); 
 				
@@ -34,6 +34,16 @@ public class AdminController1 {
 		System.out.println(username+"   "+password);
 		
 		
+		if(username.equals("admin")&& password.equals("admin"))
+			
+			return "success";
+		else
+			return "invalid" ;
+		
+		
 
 }
+	
+	
+	
 }
